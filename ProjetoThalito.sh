@@ -99,6 +99,18 @@ done
 
 clear
 
+while [ resultado==1 ]; do
     read -p "Informe o Seu IP: " IP
-
+    PI=$(echo $IP | grep -E '^([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-5][0-5]\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-5][0-5])$');
+    if [[ $? -eq 0 ]]; then
+        echo "Hoho, IP certissimo hein"
+        sleep 1
+        break
+    else
+        echo "Tente ser mais 'certo' dessa vez, blz?"
+        sleep 1
+        clear
+    fi
+done
+    
     read -p "INforme a Sua Máscara de Rede: " MASC
