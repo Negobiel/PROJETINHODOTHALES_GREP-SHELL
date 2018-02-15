@@ -85,7 +85,7 @@ clear
 
 while [ resultado==1 ]; do
     read -p "Digite a sua data de Nasc. (dd/mm/aaaa): " DNAS
-    DAT=$(echo $DNAS | grep -E '(0[0-9]|[12][0-9]|3[01])[-/.](0[1-9]|1[12])[-/.][0-9]{4}');
+    DAT=$(echo $DNAS | grep -E '(0[0-9]|[1,2][0-9]|3[0,1])[-/.](0[1-9]|1[1,2])[-/.][0-9]{4}');
     if [[ $? -eq 0 ]]; then
         echo "Tu manja de data hein, um dia você será meu calendário particular, só de brinks, claro"
         sleep 2
@@ -101,7 +101,7 @@ clear
 
 while [ resultado==1 ]; do
     read -p "Informe o Seu IP: " IP
-    PI=$(echo $IP | grep -E '^([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-5][0-5]\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-5][0-5])$');
+    PI=$(echo $IP | grep -E '^([0-9]|[0-9][0-9]|1[0-9][0-9]|2[0-5][0-5]\.){3}([0-9]|[0-9][0-9]|1[0-9][0-9]|2[0-5][0-5])');
     if [[ $? -eq 0 ]]; then
         echo "Hoho, IP certissimo hein"
         sleep 1
@@ -113,4 +113,6 @@ while [ resultado==1 ]; do
     fi
 done
     
+clear
+
     read -p "INforme a Sua Máscara de Rede: " MASC
