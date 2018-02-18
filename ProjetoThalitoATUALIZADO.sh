@@ -3,7 +3,7 @@ clear
 
 while [ resultado==1 ]; do
 read -p "Digite O Seu Nome: " NOME
-VEGA=$(echo $NOME | grep -E '^[A-Z|a-z]{1,}$');
+VEGA=$(echo $NOME | grep -E '^(^[0-9]|^.|^,|^,|^;|^:|^=|^>|^<|^#|^$|^%|^*|^-|^_|^+|^(|^)|^?|^!|^{|^}|^@|^&|^\|^/){1,}$');
     if [[ $? -eq 0 ]]; then
         sleep 1
         echo "Nome Valído"
@@ -85,7 +85,7 @@ clear
 
 while [ resultado==1 ]; do
     read -p "Digite a sua data de Nasc. (dd/mm/aaaa): " DNAS
-    DAT=$(echo $DNAS | grep -E '(0[0-9]|[1,2][0-9]|3[0,1])[-/.](0[1-9]|1[1,2])[-/.][0-9]{4}');
+    DAT=$(echo $DNAS | grep -E '(0[0-9]|[1,2][0-9]|3[0,1])[-/.](0[1-9]|1[0-2])[-/.][0-9]{4}');
     if [[ $? -eq 0 ]]; then
         echo "Tu manja de data hein, um dia você será meu calendário particular, só de brinks, claro"
         sleep 2
@@ -101,7 +101,7 @@ clear
 
 while [ resultado==1 ]; do
     read -p "Informe o Seu IP: " IP
-    PI=$(echo $IP | grep -E '^(([01]?([0-9]{2})|(2[0-4][0-9])|(25[0-5])\.){2}(([01]?([0-9]{2})|(2[0-4][0-9])|(25[0-5]))$');
+    PI=$(echo $IP | grep -E '^([0-9]\.|[0-9]{2}\.|1[0-9]{2}\.|2[0-4][0-9]\.|25[0-5]\.){3}([0-9]|[0-9]{2}|1[0-9]{2}|2[0-4][0-9]|25[0-5])$');
     if [[ $? -eq 0 ]]; then
         echo "Hoho, IP certissimo hein"
         sleep 1
@@ -115,4 +115,16 @@ done
     
 clear
 
+while [ resultado==1 ]; do
     read -p "INforme a Sua Máscara de Rede: " MASC
+	MASQ=$(echo $MASC | grep -E '^([0-9]{1,3}\.){3}([0-9]{1,3})$');
+	if [[ $? -eq 0 ]]; then
+		echo "Mds Que mascará linda huhu"
+		sleep 1
+		break
+	else
+		echo "Usa a sua cara como máscara, vê se resolve hehe. Tente de Novo"
+		sleep 2
+		clear
+	fi
+done
