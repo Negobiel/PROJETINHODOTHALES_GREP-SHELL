@@ -3,8 +3,8 @@ clear
 
 while [ resultado==1 ]; do
 read -p "Digite O Seu Nome: " NOME
-VEGA=$(echo $NOME | grep -E '^(^[0-9]|^.|^,|^,|^;|^:|^=|^>|^<|^#|^$|^%|^*|^-|^_|^+|^(|^)|^?|^!|^{|^}|^@|^&|^\|^/){1,}$');
-    if [[ $? -eq 0 ]]; then
+VEGA=$(echo $NOME | grep -E '[0-9.-\=_,><:;!2#$%"*()_+"_\]');
+    if [[ $? -eq 1 ]]; then
         sleep 1
         echo "Nome Valído"
         sleep 2
@@ -100,7 +100,7 @@ done
 clear
 
 while [ resultado==1 ]; do
-    read -p "Informe o Seu IP: " IP
+    read -p "Digite um IP (exemplo 192.168.2.69): " IP
     PI=$(echo $IP | grep -E '^([0-9]\.|[0-9]{2}\.|1[0-9]{2}\.|2[0-4][0-9]\.|25[0-5]\.){3}([0-9]|[0-9]{2}|1[0-9]{2}|2[0-4][0-9]|25[0-5])$');
     if [[ $? -eq 0 ]]; then
         echo "Hoho, IP certissimo hein"
@@ -117,7 +117,7 @@ clear
 
 while [ resultado==1 ]; do
     read -p "INforme a Sua Máscara de Rede: " MASC
-	MASQ=$(echo $MASC | grep -E '^([0-9]{1,3}\.){3}([0-9]{1,3})$');
+	egrep -x "$MASC" /root/PROJETINHODOTHALES_GREP-SHELL/mascaras.txt;
 	if [[ $? -eq 0 ]]; then
 		echo "Mds Que mascará linda huhu"
 		sleep 1
