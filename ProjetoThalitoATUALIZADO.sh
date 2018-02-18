@@ -117,7 +117,7 @@ clear
 
 while [ resultado==1 ]; do
     read -p "INforme a Sua Máscara de Rede: " MASC
-	egrep -x "$MASC" /root/PROJETINHODOTHALES_GREP-SHELL/mascaras.txt;
+	egrep "$MASC" /root/PROJETINHODOTHALES_GREP-SHELL/mascaras.txt;
 	if [[ $? -eq 0 ]]; then
 		echo "Mds Que mascará linda huhu"
 		sleep 1
@@ -128,3 +128,14 @@ while [ resultado==1 ]; do
 		clear
 	fi
 done
+
+echo "Como pelo visto chegou até aqui, quer dizer que acertou tudo. E isso significa que você ganhará um prêmio..."
+sleep 2
+echo " E será... "
+sleep 1
+echo "Eu redigitar todas as 'respostas' até agora : )"
+echo "$NOME, $MAIL, $TEL, $RG, $CPF, $DNAS, $IP, $MASC !!!!"
+sleep 4
+echo "Pronto!!! Agora tchau, sai fora do meu script!"
+sleep 1
+exit 1
