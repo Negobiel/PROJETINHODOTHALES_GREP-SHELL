@@ -85,7 +85,7 @@ clear
 
 while [ resultado==1 ]; do
     read -p "Digite a sua data de Nasc. (dd/mm/aaaa): " DNAS
-    DAT=$(echo $DNAS | grep -E '(0[0-9]|[1,2][0-9]|3[0,1])[-/.](0[1-9]|1[0-2])[-/.][0-9]{4}');
+    DAT=$(echo $DNAS | grep -E '(0[1-9]|[1,2][0-9]|3[0,1])[-/.](0[1-9]|1[0-2])[-/.](19[0-9]{2}|200[0-9]|201[0-8])');
     if [[ $? -eq 0 ]]; then
         echo "Tu manja de data hein, um dia você será meu calendário particular, só de brinks, claro"
         sleep 2
@@ -101,7 +101,7 @@ clear
 
 while [ resultado==1 ]; do
     read -p "Digite um IP (exemplo 192.168.2.69): " IP
-    PI=$(echo $IP | grep -E '^([0-9]\.|[0-9]{2}\.|1[0-9]{2}\.|2[0-4][0-9]\.|25[0-5]\.){3}([0-9]|[0-9]{2}|1[0-9]{2}|2[0-4][0-9]|25[0-4])$');
+    PI=$(echo $IP | grep -E '^([0-9]\.|[1-9][0-9]\.|1[0-9]{2}\.|2[0-4][0-9]\.|25[0-5]\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$');
     if [[ $? -eq 0 ]]; then
         echo "Hoho, IP certissimo hein"
         sleep 1
@@ -117,7 +117,7 @@ clear
 
 while [ resultado==1 ]; do
     read -p "INforme a Sua Máscara de Rede: " MASC
-	grep -n "$MASC" /root/PROJETINHODOTHALES_GREP-SHELL/mascaras.txt;
+	grep -n -w -E "$MASC" /root/PROJETINHODOTHALES_GREP-SHELL/mascaras.txt;
 	if [[ $? -eq 0 ]]; then
 		echo "Mds Que mascará linda huhu"
 		sleep 1
