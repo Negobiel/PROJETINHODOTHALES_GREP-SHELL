@@ -3,7 +3,7 @@ clear
 
 while [ resultado==1 ]; do
 read -p "Digite O Seu Nome: " NOME
-VEGA=$(echo $NOME | grep -E '[0-9.-\=_,><:;!2#$%"*()_+"_\]');
+VEGA=$(echo $NOME | grep -E '[0-9.-\=_,><:;!@#$%"*()_+"_\]');
     if [[ $? -eq 1 ]]; then
         sleep 1
         echo "Nome Valído"
